@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div className='md:w-4/5 mx-auto'>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-transparent">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -19,13 +19,13 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <Link className='md:mr-4'>Home</Link>
+                        <Link to='/' className='md:mr-4'>Home</Link>
                         <Link>Blogs</Link>
                         
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Login</a>
+                    <Link to='/login' className="btn">Login</Link>
                 </div>
             </div>
         </div>
