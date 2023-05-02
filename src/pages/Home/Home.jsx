@@ -2,6 +2,7 @@ import React from 'react';
 import banner from '../../assets/banner.jpg';
 import './Home.css'
 import AboutUs from './Sections/AboutUs/AboutUs';
+import Comments from './Sections/Comments/Comments';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
                 </div>
             </div>
             <AboutUs></AboutUs>
+            <Comments></Comments>
         </div>
     );
 };
