@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
+import toast, { Toaster } from 'react-hot-toast';
 
 const RecipeCard = ({ recipe }) => {
+    const [isDisable, setIsDisable] = useState(false)
     const { name, ingredients, method, rating, picture } = recipe
-    const fiveIngredients = ingredients.slice(0, 5)
+    const fiveIngredients = ingredients.slice(0, 5);
+    const HandelNotify = () => {
+        toast('Added to favourite!!')
+        setIsDisable(true);
+    }; 
     return (
         <div className="card lg:card-side md:grid grid-cols-2 bg-base-100 shadow-xl">
             
@@ -23,7 +29,7 @@ const RecipeCard = ({ recipe }) => {
                     <p >{method}</p>
                 </div>
                 <div className="card-actions justify-between items-center mt-3">
-                <button className="btn bg-red-500 border-none text-lg font-bold">Favourite</button>
+                <button disabled={isDisable} onClick={HandelNotify} className="btn bg-red-500 border-none text-lg font-bold">Favourite</button>
                     <span className='text-red-400'>
                         <span className='mr-3'>{rating}</span>
                         <Rating
@@ -35,6 +41,7 @@ const RecipeCard = ({ recipe }) => {
                     </span>
                     
                 </div>
+                <Toaster />
             </div>
             <figure><img className='h-full' src={picture} alt="Album" /></figure>
         </div>
