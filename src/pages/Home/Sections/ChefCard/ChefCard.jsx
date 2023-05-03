@@ -1,0 +1,23 @@
+import React from 'react';
+import { FaBeer, FaConciergeBell, FaCrown, FaHeart, FaHourglassHalf } from 'react-icons/fa';
+
+const ChefCard = ({ chef }) => {
+    const { name, experience, number_of_recipe, likes, picture } = chef
+    return (
+            <div className="card h-full card-compact bg-base-100 shadow-xl">
+                <figure><img className='' src={picture} alt="Shoes" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title font-semibold text-slate-900 text-2xl">{name}</h2>
+                    <p className='flex items-center gap-3 text-xl font-light text-slate-500'><FaCrown className='text-rose-400'></FaCrown> Experience {experience} year</p>
+                    <p className='flex items-center gap-3 text-xl font-light text-slate-500'><FaConciergeBell className='text-rose-400'></FaConciergeBell> Recipes {number_of_recipe}</p>
+                    <p className='flex items-center gap-3 text-xl font-light text-slate-500'><FaHeart className='text-rose-400'></FaHeart> Likes {likes}</p>
+                    <div className="card-actions justify-start mt-4">
+                        <button className="btn bg-rose-600 border-none text-lg font-bold">View Recipes</button>
+                    </div>
+                </div>
+            </div>
+
+    );
+};
+
+export default ChefCard;
