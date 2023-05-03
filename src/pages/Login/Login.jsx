@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
+    const [errorText, setErrorText] = useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handelLogin = (event) => {
+        event.preventDefault();
+        login(email, password)
+            .then(result => {
+                console.log(result.user);
+                setErrorText('')
+            })
+            .catch(error => {
+                setErrorText(error.message);
+            })
+
+    }
     return (
         <div className='w-2/5 mx-auto bg-gray-500 mt-10 rounded-lg'>
-            <form className='flex gap-7 flex-col p-7'>
+            <form onSubmit={handelLogin} className='flex gap-7 flex-col p-7'>
                 <h4 className='text-center text-3xl font-extrabold text-white'>Please Login</h4>
-                <input className='p-3 rounded-lg' type="email" name="email" placeholder='your email' />
-                <input className='p-3 rounded-lg' type="password" name="password" placeholder='your password' />
+                <input className='p-3 rounded-lg' type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder='your email' />
+                <input className='p-3 rounded-lg' type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder='your password' />
+
+                {
+                    errorText && <p>{errorText}</p>
+                }
                 <button className='py-3 rounded-lg bg-red-400 font-semibold text-2xl text-white'>Login</button>
                 <div>
                     <p className='text-center text-lg font-light text-white'>Do not have an account? <Link to='/register' className='text-red-300 underline'>Create account</Link></p>
