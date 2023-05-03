@@ -2,15 +2,15 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
+console.log(import.meta.env.VITE_APIKEY)
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBmYmezvIVlNwwZy3nqvtnCw3NH8p6_s54",
-  authDomain: "bengali-chefs.firebaseapp.com",
-  projectId: "bengali-chefs",
-  storageBucket: "bengali-chefs.appspot.com",
-  messagingSenderId: "964994884972",
-  appId: "1:964994884972:web:9ba9288c505e63cd667f49"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase
