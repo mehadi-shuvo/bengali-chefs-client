@@ -6,6 +6,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // create user by email and password. this funtion pass by authInfo;
     const createUser = (email, password)=>{
@@ -22,6 +23,7 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (loggedUser)=>{
             setUser(loggedUser);
+            setLoading(false)
         })
 
         return ()=>{
@@ -35,6 +37,7 @@ const AuthProvider = ({children}) => {
 
     const authInfo = {
         user,
+        loading,
         createUser,
         addNameAndPhoto,
         login,

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -7,13 +7,17 @@ const Login = () => {
     const [errorText, setErrorText] = useState('');
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname;
 
     const handelLogin = (event) => {
         event.preventDefault();
         login(email, password)
             .then(result => {
                 console.log(result.user);
-                setErrorText('')
+                setErrorText('');
+                navigate(from)
             })
             .catch(error => {
                 setErrorText(error.message);
