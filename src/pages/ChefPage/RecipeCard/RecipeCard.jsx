@@ -29,7 +29,7 @@ const RecipeCard = ({ recipe }) => {
                     <p >{method}</p>
                 </div>
                 <div className="card-actions justify-between items-center mt-3">
-                <button disabled={isDisable} onClick={HandelNotify} className="btn bg-red-500 border-none text-lg font-bold">Favourite</button>
+                <button disabled={!isDisable} onClick={HandelNotify} className="btn bg-red-500 border-none text-lg font-bold">Favourite</button>
                     <span className='text-red-400'>
                         <span className='mr-3'>{rating}</span>
                         <Rating
