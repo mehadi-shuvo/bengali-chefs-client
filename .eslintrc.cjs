@@ -15,5 +15,6 @@ module.exports = {
     "no-unused-vars":0,
     "react/no-unescaped-entities":0,
     "react/prop-types":0,
+    "react/jsx-key":0,
   },
 }
