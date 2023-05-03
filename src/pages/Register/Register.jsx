@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Register.css'
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const Register = () => {
+    const {user} = useContext(AuthContext)
     return (
         <div className='md:grid grid-cols-2 gap-5 mx-auto w-4/5'>
             <div className='register-banner mt-10 rounded-lg flex flex-col justify-center items-center'>
