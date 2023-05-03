@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider/AuthProvider';
+import { FaBeer, FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
+    const {user, logOut} = useContext(AuthContext);
+    const name = user?.displayName;
+    const photo = user?.photoURL
+    console.log(photo);
+    const handelLogOut =()=>{
+        logOut()
+            .then().catch(error=>{
+                console.log(error);
+            })
+    }
+    
     return (
         <div className='md:w-4/5 mx-auto'>
             <div className="navbar bg-transparent">
@@ -25,7 +38,16 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login' className="btn">Login</Link>
+                    {
+                        user ?
+                        <div className='flex justify-center items-center'>
+                            {
+                                photo?<img className='w-10 h-10 rounded-full' title={name} src={photo}></img>: <FaUserCircle title={name}></FaUserCircle>
+                            }
+                            <Link onClick={handelLogOut} className='ml-3 py-1 px-3 rounded-lg bg-red-400 font-medium text-lg text-white'>Log out</Link>
+                        </div>
+                        :<Link to='/login' className='py-1 px-3 rounded-lg bg-red-400 font-medium text-lg text-white'>Login</Link>
+                    }
                 </div>
             </div>
         </div>
