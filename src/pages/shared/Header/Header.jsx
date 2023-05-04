@@ -48,7 +48,7 @@ const Header = () => {
                         user ?
                             <div className='flex justify-center items-center'>
                                 {
-                                    photo ? <img className='w-10 h-10 rounded-full' title={name} src={photo}></img> : <FaUserCircle title={name}></FaUserCircle>
+                                    photo ? <img className='w-10 h-10 rounded-full' title={name} src={photo}></img> : <FaUserCircle className='text-3xl' title={name}></FaUserCircle>
                                 }
                                 <Link onClick={handelLogOut} className='ml-3 py-1 px-3 rounded-lg bg-red-400 font-medium text-lg text-white'>Log out</Link>
                             </div>

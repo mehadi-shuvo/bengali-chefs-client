@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const { login,LoginGoogle,setUser,loginGitHub } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Login = () => {
         event.preventDefault();
         login(email, password)
             .then(result => {
-                console.log(result.user);
+                toast('Logged successfully!!')
                 setErrorText('');
                 navigate(from)
             })
@@ -31,6 +32,7 @@ const Login = () => {
         LoginGoogle(GoogleProvider)
             .then(result=>{
                 setUser(result.user);
+                toast('Logged successfully!!')
                 navigate(from)
             })
             .catch(error =>{
@@ -41,6 +43,7 @@ const Login = () => {
         loginGitHub(gitHubProvider)
             .then(result=>{
                 setUser(result.user);
+                toast('Logged successfully!!')
                 navigate(from)
             })
             .catch(error=>{
@@ -70,6 +73,7 @@ const Login = () => {
                 <button onClick={handelGoogle} className='py-3 px-4 bg-slate-900 font-semibold text-xl text-white rounded-lg'>Login with Google</button>
                 <button onClick={handelGitHub} className='py-3 px-4 bg-slate-900 font-semibold text-xl text-white rounded-lg'>Login with GitHub</button>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

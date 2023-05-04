@@ -11,11 +11,10 @@ const AuthProvider = ({children}) => {
 
     // create user by email and password. this funtion pass by authInfo;
     const createUser = (email, password)=>{
-        setLoading(true);
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const addNameAndPhoto = (currentUser, name, photo)=>{
-        setLoading(true);
         return updateProfile(auth.currentUser, {displayName: name, photoURL:photo})
     }
     //login auth funtion;

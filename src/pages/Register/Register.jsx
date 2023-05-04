@@ -1,16 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
     const [errorText, setErrorText] = useState('');
+    const navigate = useNavigate();
     const {createUser, addNameAndPhoto} = useContext(AuthContext);
     const [name, setName] = useState('');
     const[photo, setPhoto] = useState('')
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
-
     const handelSubmit = (e)=>{
         e.preventDefault();
         setErrorText('') 
@@ -33,8 +34,9 @@ const Register = () => {
                     .then().catch(error=>{
                         console.log(error.message)
                     });
-                    console.log(newUser); 
-                    setErrorText('')  
+                    toast('Register successfully!!') 
+                    setErrorText('') 
+                    navigate('/') 
             })
             .catch(error=>{
                 setErrorText(error.message)
@@ -47,6 +49,7 @@ const Register = () => {
                 <p className='mt-5 text-center text-lg font-light text-white'>All food update you will get after register and all offer also</p>
             </div>
             <div className=' bg-gray-500 mt-10 rounded-lg'>
+                <Toaster></Toaster>
                 <form onSubmit={handelSubmit} className='flex gap-7 flex-col p-7'>
                     <h4 className='text-center text-3xl font-extrabold text-white'>Create Your Account</h4>
                     
@@ -64,15 +67,11 @@ const Register = () => {
                     {
                         errorText && <p>{errorText}</p>
                     }
-                    <button className='py-3 rounded-lg bg-red-400 font-semibold text-2xl text-white'>Login</button>
+                    <button disabled={email&&password ? false: true} className='py-3 rounded-lg bg-red-400 disabled:bg-slate-400 font-semibold text-2xl text-white'>Register</button>
                     <div>
                         <p className='text-center text-lg font-light text-white'>Have an account? <Link to='/login' className='text-red-300 underline'>Login</Link></p>
                     </div>
                 </form>
-                <div className='flex justify-around px-7 mt-7 pb-7'>
-                    <button className='py-3 px-4 bg-slate-900 font-semibold text-xl text-white rounded-lg'>Register with Google</button>
-                    <button className='py-3 px-4 bg-slate-900 font-semibold text-xl text-white rounded-lg'>Register with GitHub</button>
-                </div>
             </div>
         </div>
     );
