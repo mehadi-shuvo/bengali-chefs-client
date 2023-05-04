@@ -6,7 +6,7 @@ import RecipeCard from './RecipeCard/RecipeCard';
 const ChefPage = () => {
     const [recipes, setRecipes] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:3000/recipes')
+        fetch('https://bengali-chefs-server-mehadi-shuvo.vercel.app/recipes')
             .then(res=> res.json())
             .then(data =>setRecipes(data));
     },[])

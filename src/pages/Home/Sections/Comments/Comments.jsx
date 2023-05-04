@@ -17,25 +17,25 @@ const Comments = () => {
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Tamim Tamu</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
-                    <div className="card bg-slate-400 mx-2">
+                    <div className="card hidden md:block bg-slate-400 mx-2">
                         <figure className="px-10 pt-10">
                             <img src={pic2} alt="Shoes" className="mask mask-squircle h-24" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Humaira Akter</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'> Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
-                    <div className="card bg-slate-400 mx-2">
+                    <div className="card hidden md:block bg-slate-400 mx-2">
                         <figure className="px-10 pt-10">
                             <img src={pic3} alt="Shoes" className="mask mask-squircle h-24" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Rafi Rock</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
                 </div>
@@ -46,25 +46,25 @@ const Comments = () => {
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Chirli Chok</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
-                    <div className="card bg-slate-400 mx-2">
+                    <div className="card hidden md:block bg-slate-400 mx-2">
                         <figure className="px-10 pt-10">
                             <img src={pic3} alt="Shoes" className="mask mask-squircle h-24" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Rafi Rock</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
-                    <div className="card bg-slate-400 mx-2">
+                    <div className="card hidden md:block bg-slate-400 mx-2">
                         <figure className="px-10 pt-10">
                             <img src={pic2} alt="Shoes" className="mask mask-squircle h-24" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Humaira Akter</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
                 </div>
@@ -75,25 +75,25 @@ const Comments = () => {
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Rafi Rock</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
-                    <div className="card bg-slate-400 mx-2">
+                    <div className="card hidden md:block bg-slate-400 mx-2">
                         <figure className="px-10 pt-10">
                             <img src={pic1} alt="Shoes" className="mask mask-squircle h-24" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Tamim Tamu</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
-                    <div className="card bg-slate-400 mx-2">
+                    <div className="card hidden md:block bg-slate-400 mx-2">
                         <figure className="px-10 pt-10">
                             <img src={pic2} alt="Shoes" className="mask mask-squircle h-24" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Humaira Akter</h2>
-                            <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
+                            <p className='flex-grow-0'>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@ const Comments = () => {
                             <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
-                    <div className="card bg-slate-400 mx-2">
+                    <div className="card hidden md:block bg-slate-400 mx-2">
                         <figure className="px-10 pt-10">
                             <img src={pic2} alt="Shoes" className="mask mask-squircle h-24" />
                         </figure>
@@ -116,7 +116,7 @@ const Comments = () => {
                             <p>Thank you for the amazing meal! Looking forward to visiting again soon!</p>
                         </div>
                     </div>
-                    <div className="card bg-slate-400 mx-2">
+                    <div className="card hidden md:block bg-slate-400 mx-2">
                         <figure className="px-10 pt-10">
                             <img src={pic3} alt="Shoes" className="mask mask-squircle h-24" />
                         </figure>

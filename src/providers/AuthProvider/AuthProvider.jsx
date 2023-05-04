@@ -11,20 +11,23 @@ const AuthProvider = ({children}) => {
 
     // create user by email and password. this funtion pass by authInfo;
     const createUser = (email, password)=>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const addNameAndPhoto = (currentUser, name, photo)=>{
+        setLoading(true);
         return updateProfile(auth.currentUser, {displayName: name, photoURL:photo})
     }
     //login auth funtion;
     const login = (email, password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword (auth, email, password);
     }
     //get current user;
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (loggedUser)=>{
-            setUser(loggedUser);
             setLoading(false)
+            setUser(loggedUser);
         })
 
         return ()=>{
@@ -37,10 +40,12 @@ const AuthProvider = ({children}) => {
     }
     // login with google
     const LoginGoogle =(GoogleProvider)=>{
+        setLoading(true);
         return signInWithPopup(auth, GoogleProvider);
     }
     // login with gitHub;
     const loginGitHub = (gitHubProvider)=>{
+        setLoading(true);
         return signInWithPopup(auth, gitHubProvider);
     }
 

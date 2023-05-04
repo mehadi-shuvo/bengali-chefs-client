@@ -4,7 +4,7 @@ import { AuthContext } from '../../../providers/AuthProvider/AuthProvider';
 import { FaBeer, FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, loading } = useContext(AuthContext);
     const name = user?.displayName;
     const photo = user?.photoURL
     console.log(photo);

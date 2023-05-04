@@ -5,9 +5,25 @@ import AboutUs from './Sections/AboutUs/AboutUs';
 import Comments from './Sections/Comments/Comments';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from './Sections/ChefCard/ChefCard';
+import { BallTriangle } from 'react-loader-spinner';
 
 const Home = () => {
     const chefs = useLoaderData();
+    if(!chefs){
+        return <div className='flex justify-center items-center'>
+        <BallTriangle
+    height={100}
+    width={100}
+    radius={5}
+    color="#4fa94d"
+    ariaLabel="ball-triangle-loading"
+    wrapperClass={{}}
+    wrapperStyle=""
+    visible={true}
+     ></BallTriangle>
+    </div>
+    }
+    
     
     return (
         <div>
@@ -21,7 +37,7 @@ const Home = () => {
             </div>
             <div className='my-10 w-4/5 mx-auto'>
                 <h4 className='text-center text-4xl text-red-500 font-bold mb-11'>Our Chefs</h4>
-                <div className='md:grid grid-cols-3 gap-4'>
+                <div className='grid md:grid-cols-3 gap-4'>
                     {
                         chefs.map(chef => <ChefCard
                             key={chef.id}
