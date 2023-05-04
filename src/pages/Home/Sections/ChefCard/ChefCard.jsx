@@ -9,7 +9,9 @@ const ChefCard = ({ chef }) => {
     return (
             <div className="card h-full card-compact bg-base-100 shadow-xl">
                 <figure>
+                    <LazyLoad height='350px' offset={300}>
                     <img className='' src={picture} alt="Shoes" />
+                    </LazyLoad>
 
                 </figure>
                 <div className="card-body">

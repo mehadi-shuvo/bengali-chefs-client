@@ -8,7 +8,7 @@ import ChefCard from './Sections/ChefCard/ChefCard';
 
 const Home = () => {
     const chefs = useLoaderData();
-    // console.log(chefs)
+    
     return (
         <div>
             <div className='banner pb-12 pt-48'>
