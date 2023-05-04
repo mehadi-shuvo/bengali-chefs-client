@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import toast, { Toaster } from 'react-hot-toast';
+import LazyLoad from 'react-lazy-load';
 
 const RecipeCard = ({ recipe }) => {
     const [isDisable, setIsDisable] = useState(false)
@@ -29,7 +30,7 @@ const RecipeCard = ({ recipe }) => {
                     <p >{method}</p>
                 </div>
                 <div className="card-actions justify-between items-center mt-3">
-                <button disabled={!isDisable} onClick={HandelNotify} className="btn bg-red-500 border-none text-lg font-bold">Favourite</button>
+                <button disabled={isDisable} onClick={HandelNotify} className="btn bg-red-500 border-none text-lg font-bold">Favourite</button>
                     <span className='text-red-400'>
                         <span className='mr-3'>{rating}</span>
                         <Rating
@@ -43,7 +44,10 @@ const RecipeCard = ({ recipe }) => {
                 </div>
                 <Toaster />
             </div>
-            <figure><img className='h-full' src={picture} alt="Album" /></figure>
+            <figure>
+                <img className='h-full' src={picture} alt="Album" />
+
+            </figure>
         </div>
     );
 };

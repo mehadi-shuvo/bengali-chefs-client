@@ -1,15 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login,LoginGoogle,setUser,loginGitHub } = useContext(AuthContext);
+    const GoogleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
     const [errorText, setErrorText] = useState('');
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const location = useLocation();
     const navigate = useNavigate();
-    const from = location?.state?.from?.pathname;
+    const from = location?.state?.from?.pathname || '/';
 
     const handelLogin = (event) => {
         event.preventDefault();
@@ -23,6 +26,26 @@ const Login = () => {
                 setErrorText(error.message);
             })
 
+    }
+    const handelGoogle = ()=>{
+        LoginGoogle(GoogleProvider)
+            .then(result=>{
+                setUser(result.user);
+                navigate(from)
+            })
+            .catch(error =>{
+                setErrorText(error.message);
+            })
+    }
+    const handelGitHub =()=>{
+        loginGitHub(gitHubProvider)
+            .then(result=>{
+                setUser(result.user);
+                navigate(from)
+            })
+            .catch(error=>{
+                setErrorText(error.message);
+            })
     }
     return (
         <div className='w-2/5 mx-auto bg-gray-500 mt-10 rounded-lg'>
@@ -44,8 +67,8 @@ const Login = () => {
                 </div>
             </form>
             <div className='flex justify-around px-7 mt-7 pb-7'>
-                <button className='py-3 px-4 bg-slate-900 font-semibold text-xl text-white rounded-lg'>Login with Google</button>
-                <button className='py-3 px-4 bg-slate-900 font-semibold text-xl text-white rounded-lg'>Login with GitHub</button>
+                <button onClick={handelGoogle} className='py-3 px-4 bg-slate-900 font-semibold text-xl text-white rounded-lg'>Login with Google</button>
+                <button onClick={handelGitHub} className='py-3 px-4 bg-slate-900 font-semibold text-xl text-white rounded-lg'>Login with GitHub</button>
             </div>
         </div>
     );

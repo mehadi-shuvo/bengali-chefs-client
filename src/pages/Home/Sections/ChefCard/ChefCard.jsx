@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaBeer, FaConciergeBell, FaCrown, FaHeart, FaHourglassHalf } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({ chef }) => {
@@ -7,7 +8,10 @@ const ChefCard = ({ chef }) => {
     const { id,name, experience, number_of_recipe, likes, picture } = chef
     return (
             <div className="card h-full card-compact bg-base-100 shadow-xl">
-                <figure><img className='' src={picture} alt="Shoes" /></figure>
+                <figure>
+                    <img className='' src={picture} alt="Shoes" />
+
+                </figure>
                 <div className="card-body">
                     <h2 className="card-title font-semibold text-slate-900 text-2xl">{name}</h2>
                     <p className='flex items-center gap-3 text-xl font-light text-slate-500'><FaCrown className='text-rose-400'></FaCrown> Experience {experience} year</p>
