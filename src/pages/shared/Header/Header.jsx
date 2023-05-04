@@ -37,7 +37,7 @@ const Header = () => {
                             : "md:mr-4"
                             }
                         >Home</NavLink>
-                        <NavLink to='/tt' className={({ isActive, isPending }) => isActive ? "active text-red-500 md:mr-4": isPending ? "pending"
+                        <NavLink to='/blogs' className={({ isActive, isPending }) => isActive ? "active text-red-500 md:mr-4": isPending ? "pending"
                             : "md:mr-4"
                             }>Blogs</NavLink>
 
